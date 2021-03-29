@@ -1,1 +1,3 @@
-soy malo y te lo cambio lero lero
+<?php 
+echo mi cuerno de mamut te lo meto por el cu
+?>
