@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FirebaseKotlinCRUD</string>
+    <string name="all">TODO</string>
+    <string name="name">Final fantasy VII remake</string>
+    <string name="date">2 de marzo de 2020</string>
+    <string name="title_activity_main">QSale</string>
+    <string name="subtitle_activity_main">2021</string>
+    <string name="title_activity_add">Nuevo Evento</string>
+    <string name="title_activity_edit">Datos del evento</string>
+    <string name="name_form">Nombre</string>
+    <string name="date_form">Fecha</string>
+    <string name="url_form">Url imagen</string>
+    <string name="place_form">Lugar</string>
+
+    <string name="description_form">Descripción</string>
+    <string name="price_form">Precio</string>
+    <string name="action_form">Guardar</string>
+    <string name="save">Guardar</string>
+    <string name="description">Final Fantasy es una franquicia de medios creada por Hironobu Sakaguchi y desarrollada por Square Enix. La franquicia se centra en una serie de fantasía y ciencia ficción de videojuegos RPG.</string>
+    <string name="price">precio $</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "632026480607",
+    "project_id": "qsaleeventpublisher",
+    "storage_bucket": "qsaleeventpublisher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632026480607:android:8c327b8471936c8db80e6a",
+        "android_client_info": {
+          "package_name": "com.example.loginfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632026480607-0db100dfahhdtfo2hio123lovp7290pc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1YKApwuiBMgmQOyivJ51tPKXWqTH99Pg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632026480607-0db100dfahhdtfo2hio123lovp7290pc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
