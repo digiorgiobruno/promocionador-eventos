@@ -18,11 +18,12 @@ class AddActivity : AppCompatActivity() {
 
         val name=nameEditText.text
         val date=dateEditText.text
+        val price=priceEditText.text
         val description=descriptionEditText.text
         val url=urlEditText.text
 
         saveButton.setOnClickListener { v ->
-            val evento = Videogame(name.toString(), date.toString(), description.toString(), url.toString())
+            val evento = Videogame(name.toString(), date.toString(), price.toString(), description.toString(), url.toString())
             myRef.child(myRef.push().key.toString()).setValue(evento)
             finish()
         }

@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             val videogame = values[position]
             holder.mNameTextView.text = videogame.name
             holder.mDateTextView.text = videogame.date
+            holder.mPriceTextView.text = videogame.price
             holder.mPosterImgeView?.let {
                 Glide.with(holder.itemView.context)
                     .load(videogame.url)
@@ -112,6 +113,7 @@ class MainActivity : AppCompatActivity() {
             val mNameTextView: TextView = view.nameTextView
             val mDateTextView: TextView = view.dateTextView
             val mPosterImgeView: ImageView? = view.posterImgeView
+            val mPriceTextView: TextView = view.priceTextView
         }
     }
 
