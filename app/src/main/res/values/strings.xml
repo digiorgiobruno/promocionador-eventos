@@ -18,4 +18,8 @@
     <string name="save">Guardar</string>
     <string name="description">Final Fantasy es una franquicia de medios creada por Hironobu Sakaguchi y desarrollada por Square Enix. La franquicia se centra en una serie de fantasía y ciencia ficción de videojuegos RPG.</string>
     <string name="price">precio $</string>
+    <string name="email">Correo</string>
+    <string name="password">Constraseña</string>
+    <string name="signin">Registrar</string>
+    <string name="login">Acceder</string>
 </resources>

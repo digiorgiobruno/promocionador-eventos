@@ -27,6 +27,7 @@ class EditActivity : AppCompatActivity() {
                 if (videogame != null) {
                     nameEditText.text = Editable.Factory.getInstance().newEditable(videogame.name)
                     dateEditText.text = Editable.Factory.getInstance().newEditable(videogame.date)
+                    priceEditText.text = Editable.Factory.getInstance().newEditable(videogame.price)
                     descriptionEditText.text = Editable.Factory.getInstance().newEditable(videogame.description)
                     urlEditText.text = Editable.Factory.getInstance().newEditable(videogame.url)
                 }
@@ -42,11 +43,13 @@ class EditActivity : AppCompatActivity() {
 
             val name : String = nameEditText.text.toString()
             val date : String = dateEditText.text.toString()
+            val price : String = priceEditText.text.toString()
             val description: String = descriptionEditText.text.toString()
             val url: String = urlEditText.text.toString()
 
             myRef.child("name").setValue(name)
             myRef.child("date").setValue(date)
+            myRef.child("price").setValue(price)
             myRef.child("description").setValue(description)
             myRef.child("url").setValue(url)
 

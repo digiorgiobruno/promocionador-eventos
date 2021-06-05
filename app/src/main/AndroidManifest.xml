@@ -21,6 +21,10 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.MainActivity">
+        </activity>
+        <activity
+            android:name=".AuthActivity"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
