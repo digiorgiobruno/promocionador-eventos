@@ -22,4 +22,7 @@
     <string name="password">Constraseña</string>
     <string name="signin">Registrar</string>
     <string name="login">Acceder</string>
+    <string name="attend">Asistiré</string>
+    <string name="organizerData">Datos Organizador</string>
+    <string name="place">Lugar de Evento</string>
 </resources>
