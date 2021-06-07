@@ -1,18 +1,23 @@
 package com.example.firebasekotlincrud
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.firebasekotlincrud.databinding.ActivityAuthBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_auth.*
 
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding:ActivityAuthBinding
-
+    private  var rbCheck =false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,10 +25,32 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
         auth = Firebase.auth
         //setup
-        setup(auth)
+
+        rbCheck = binding.RBsesion.isChecked
+        rbclick()
+        val sharedPreferences = getSharedPreferences(
+            "packageName",
+            Context.MODE_PRIVATE
+        )
+        //sharedPreferences.edit().putString("username","Valor predeterminado").apply()
+
+        if (sharedPreferences.getString("username", "false")=="false") {
+            //Toast.makeText(this, "no hay sesion seteada",Toast.LENGTH_SHORT).show()
+            setup(auth)
+        }else{
+            //Toast.makeText(this, sharedPreferences.getString("username", "false"),Toast.LENGTH_SHORT).show()
+            sharedPreferences.getString("username", "false")?.let { showHome(it) }
+        }
+
     }
 
+    private fun rbclick(){
 
+        binding.RBsesion.setOnClickListener(View.OnClickListener {
+        binding.RBsesion.isChecked = !rbCheck
+                rbCheck = binding.RBsesion.isChecked
+        })
+    }
     private fun setup(auth:FirebaseAuth) {
         title = "Autentificación"
 
@@ -41,7 +68,6 @@ class AuthActivity : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
 
-                            val user = auth.currentUser
                             showHome(task.result?.user?.email?:"")
                         } else {
                             showAlert()
@@ -58,6 +84,16 @@ class AuthActivity : AppCompatActivity() {
                 val password=binding.passwordEditText.text.toString()
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener{
                     if(it.isSuccessful){
+
+                        val user = auth.currentUser
+                        if (rbCheck) {
+                        val sharedPreferences = getSharedPreferences(
+                            "packageName",
+                            Context.MODE_PRIVATE
+                        )
+                        sharedPreferences.edit().putString("username",it.result?.user?.email ?: "").apply()
+
+                        }
                         showHome(it.result?.user?.email?:"")
                     }else{
                         showAlert()

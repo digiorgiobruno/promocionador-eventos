@@ -25,4 +25,5 @@
     <string name="attend">Asistiré</string>
     <string name="organizerData">Datos Organizador</string>
     <string name="place">Lugar de Evento</string>
+    <string name="no_close_sesion">No Cerrar Sesión</string>
 </resources>

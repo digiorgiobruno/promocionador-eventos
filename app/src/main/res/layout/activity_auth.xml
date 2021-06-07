@@ -45,6 +45,16 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:importantForAutofill="no" />
+        <RadioButton
+            android:id="@+id/RBsesion"
+            android:hint="@string/no_close_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            >
+
+        </RadioButton>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.firebasekotlincrud
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -40,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         listVideogames.clear()
         setupRecyclerView(videogameRecyclerView)
 
+        val sharedPreferences = getSharedPreferences(
+            "packageName",
+            Context.MODE_PRIVATE
+        )
+        Toast.makeText(this, "Bienvenido "+sharedPreferences.getString("username", "false"),Toast.LENGTH_SHORT).show()
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
@@ -49,15 +56,16 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 listVideogames.clear()
                 dataSnapshot.children.forEach { child ->
-                    val videogame: Videogame? =
+                    val videogame: Videogame =
                             Videogame(child.child("name").getValue<String>(),
-                                    child.child("date").getValue<String>(),
+                                    child.child("date").getValue<String>(),null,
                                     child.child("price").getValue<String>(),
                                     child.child("description").getValue<String>(),
                                     child.child("url").getValue<String>(),
                                     child.key)
                     videogame?.let { listVideogames.add(it) }
                 }
+
                 recyclerView.adapter = VideogameViewAdapter(listVideogames)
             }
 
@@ -66,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         myRef.addValueEventListener(messagesListener)
+
 
         deleteSwipe(recyclerView)
     }
@@ -90,9 +99,15 @@ class MainActivity : AppCompatActivity() {
                     .into(it)
             }
 
+
             holder.itemView.setOnClickListener { v ->
+
                 val intent = Intent(v.context, VideogameDetail::class.java).apply {
                     putExtra("key", videogame.key)
+                    //putExtra("key", email)
+
+
+                    //Toast.makeText(this, "Presionaste Registrar $email ",Toast.LENGTH_SHORT).show()
                 }
                 v.context.startActivity(intent)
             }
